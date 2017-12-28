@@ -3,7 +3,7 @@
 //  ColorByNumber
 //
 //  Created by Razvan Bangu on 2017-12-28.
-//  Copyright © 2017 Prahalika. All rights reserved.
+//  Copyright © 2017 Razhalika. All rights reserved.
 //
 
 import UIKit

@@ -127,7 +127,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = Prahalika;
+				ORGANIZATIONNAME = Razhalika;
 				TargetAttributes = {
 					38302B9E1FF49FAB00209641 = {
 						CreatedOnToolsVersion = 9.2;
