@@ -54,14 +54,38 @@
 		38302BA11FF49FAB00209641 /* ColorByNumber */ = {
 			isa = PBXGroup;
 			children = (
-				38302BA21FF49FAB00209641 /* AppDelegate.swift */,
-				38302BA41FF49FAB00209641 /* ViewController.swift */,
-				38302BA61FF49FAB00209641 /* Main.storyboard */,
-				38302BA91FF49FAB00209641 /* Assets.xcassets */,
-				38302BAB1FF49FAB00209641 /* LaunchScreen.storyboard */,
+				38302BB61FF4A0BD00209641 /* Supporting Files */,
+				38302BB41FF4A0AA00209641 /* View Controllers */,
+				38302BB51FF4A0B200209641 /* Storyboards */,
 				38302BAE1FF49FAB00209641 /* Info.plist */,
 			);
 			path = ColorByNumber;
+			sourceTree = "<group>";
+		};
+		38302BB41FF4A0AA00209641 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				38302BA41FF49FAB00209641 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		38302BB51FF4A0B200209641 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				38302BA61FF49FAB00209641 /* Main.storyboard */,
+				38302BAB1FF49FAB00209641 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		38302BB61FF4A0BD00209641 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				38302BA21FF49FAB00209641 /* AppDelegate.swift */,
+				38302BA91FF49FAB00209641 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
