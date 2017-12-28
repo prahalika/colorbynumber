@@ -12,14 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+        let image = #imageLiteral(resourceName: "test_img")
 
+        let pixels = image.pixelData()
+        let uniquePixels = Set<Pixel>(pixels)
+
+        print("There are \(uniquePixels.count) unique colors in this image")
+    }
 
 }
 
