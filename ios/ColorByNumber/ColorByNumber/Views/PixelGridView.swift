@@ -54,6 +54,10 @@ class PixelGridView : UIView {
                 label.text = String(describing: self.uniquePixels.index(of: thePixel)! + 1)
                 label.textAlignment = .center
 
+                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.labelWasTapped(_:)))
+                label.addGestureRecognizer(tapGestureRecognizer)
+                label.isUserInteractionEnabled = true
+
                 // Create the borders
                 var borders = [UIView]()
 
@@ -86,5 +90,20 @@ class PixelGridView : UIView {
 
             self.pixelSelected = 0
         }
+    }
+
+    @objc private func labelWasTapped(_ tapGestureRecognizer: UITapGestureRecognizer!) {
+        var thePixel: Pixel? = nil
+
+        // First find the pixel it corresponds to
+        for (pixel, labels) in self.pixelsToLabels {
+            if labels.contains(tapGestureRecognizer.view! as! UILabel) {
+                thePixel = pixel
+                break
+            }
+        }
+
+        // Then update the currently selected pixel
+        self.pixelSelected = self.uniquePixels.index(of: thePixel!)!
     }
 }
