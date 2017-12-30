@@ -13,6 +13,7 @@
 		38302BAA1FF49FAB00209641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38302BA91FF49FAB00209641 /* Assets.xcassets */; };
 		38302BAD1FF49FAB00209641 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38302BAB1FF49FAB00209641 /* LaunchScreen.storyboard */; };
 		38302BB91FF4BA7000209641 /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38302BB81FF4BA7000209641 /* Pixel.swift */; };
+		3874E1C51FF744FA00731519 /* PixelGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874E1C41FF744FA00731519 /* PixelGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		38302BAC1FF49FAB00209641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38302BAE1FF49FAB00209641 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38302BB81FF4BA7000209641 /* Pixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
+		3874E1C41FF744FA00731519 /* PixelGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		38302BA11FF49FAB00209641 /* ColorByNumber */ = {
 			isa = PBXGroup;
 			children = (
+				3874E1C31FF744E100731519 /* Views */,
 				38302BB71FF4BA6300209641 /* Models */,
 				38302BB61FF4A0BD00209641 /* Supporting Files */,
 				38302BB41FF4A0AA00209641 /* View Controllers */,
@@ -97,6 +100,14 @@
 				38302BB81FF4BA7000209641 /* Pixel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3874E1C31FF744E100731519 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3874E1C41FF744FA00731519 /* PixelGridView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38302BA51FF49FAB00209641 /* ViewController.swift in Sources */,
+				3874E1C51FF744FA00731519 /* PixelGridView.swift in Sources */,
 				38302BB91FF4BA7000209641 /* Pixel.swift in Sources */,
 				38302BA31FF49FAB00209641 /* AppDelegate.swift in Sources */,
 			);
