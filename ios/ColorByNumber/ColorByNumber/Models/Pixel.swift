@@ -9,20 +9,13 @@
 import UIKit
 
 struct Pixel {
-    var r: UInt8
-    var g: UInt8
-    var b: UInt8
-    var a: UInt8
-    var row: Int
-    var col: Int
+    var r, g, b, a: UInt8
 
-    init(r: UInt8, g: UInt8, b: UInt8, a: UInt8, row: Int, col: Int) {
+    init(r: UInt8, g: UInt8, b: UInt8, a: UInt8) {
         self.r = r
         self.g = g
         self.b = b
         self.a = a
-        self.row = row
-        self.col = col
     }
 
     var color: UIColor {
@@ -36,17 +29,17 @@ struct Pixel {
 
 extension Pixel : Equatable {
     public static func ==(lhs: Pixel, rhs: Pixel) -> Bool {
-        return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b && lhs.a == rhs.a
+        return UInt32(lhs.hashValue) == UInt32(rhs.hashValue)
     }
 }
 
 extension Pixel : Comparable {
     public static func <(lhs: Pixel, rhs: Pixel) -> Bool {
-        return UInt(lhs.hashValue) < UInt(rhs.hashValue)
+        return UInt32(lhs.hashValue) < UInt32(rhs.hashValue)
     }
 
     public static func >(lhs: Pixel, rhs: Pixel) -> Bool {
-        return UInt(lhs.hashValue) > UInt(rhs.hashValue)
+        return UInt32(lhs.hashValue) > UInt32(rhs.hashValue)
     }
 
     public static func <=(lhs: Pixel, rhs: Pixel) -> Bool {
@@ -59,12 +52,16 @@ extension Pixel : Comparable {
 }
 
 extension Pixel : Hashable {
+    /// Computes a 32-bit unsigned integer where the bits are divided as follows:
+    /// [31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00]
+    /// [          red          |         green         |          blue         |         alpha         ]
+    /// Each of red, green, blue, and alpha can take values from 0-255, so they fit in 8 bits
     public var hashValue: Int {
-        let redHash = UInt32(self.r) << 24
-        let greenHash = UInt32(self.g) << 16
-        let blueHash = UInt32(self.b) << 8
-        let alphaHash = UInt32(self.a)
-        return Int(redHash | greenHash | blueHash | alphaHash)
+        let redBits     = UInt32(r) << (8 * 3)
+        let greenBits   = UInt32(g) << (8 * 2)
+        let blueBits    = UInt32(b) << (8 * 1)
+        let alphaBits   = UInt32(a) << (8 * 0)
+        return Int(redBits | greenBits | blueBits | alphaBits)
     }
 }
 
@@ -83,18 +80,16 @@ extension UIImage {
         var r, g, b, a: UInt8
         var pixels: [Pixel] = []
 
-        for row in 0..<Int(self.size.height) {
-            for col in 0..<Int(self.size.width) {
-                r = data.pointee
-                data = data.advanced(by: 1)
-                g = data.pointee
-                data = data.advanced(by: 1)
-                b = data.pointee
-                data = data.advanced(by: 1)
-                a = data.pointee
-                data = data.advanced(by: 1)
-                pixels.append(Pixel(r: r, g: g, b: b, a: a, row: row, col: col))
-            }
+        for _ in 0..<Int(self.size.height)*Int(self.size.width) {
+            r = data.pointee
+            data = data.advanced(by: 1)
+            g = data.pointee
+            data = data.advanced(by: 1)
+            b = data.pointee
+            data = data.advanced(by: 1)
+            a = data.pointee
+            data = data.advanced(by: 1)
+            pixels.append(Pixel(r:r, g:g, b:b, a:a))
         }
 
         return pixels
