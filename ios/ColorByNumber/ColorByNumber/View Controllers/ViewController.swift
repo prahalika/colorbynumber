@@ -8,17 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
+
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollviewContentView: UIView!
+    @IBOutlet weak var imageContainer: PixelGridView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.scrollView.minimumZoomScale = 1.0;
+        self.scrollView.maximumZoomScale = 6.0;
+
         let image = #imageLiteral(resourceName: "test_img")
 
-        let pixels = image.pixelData()
-        let uniquePixels = Set<Pixel>(pixels)
+        self.imageContainer.setup(with: image)
+    }
 
-        print("There are \(uniquePixels.count) unique colors in this image")
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.scrollviewContentView
     }
 
 }
