@@ -57,6 +57,10 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Xv-TY-I6c" userLabel="redColorView">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="37.5"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="5wz-9f-ujb" appends="YES" id="r2s-rq-KqH"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmR-gR-Pym" userLabel="orangeColorView">
                                                 <rect key="frame" x="75" y="0.0" width="75" height="37.5"/>
@@ -165,12 +169,19 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="imageContainer" destination="GLU-Lk-jql" id="9UJ-VQ-lHK"/>
+                        <outlet property="imageContainer" destination="GLU-Lk-jql" id="bGg-gd-Y0E"/>
+                        <outlet property="redColorView" destination="8Xv-TY-I6c" id="Xmo-Fm-C7k"/>
                         <outlet property="scrollView" destination="qOv-vZ-eHd" id="6Cm-ug-XVT"/>
                         <outlet property="scrollviewContentView" destination="cSu-Vs-r3g" id="3Ey-Wy-M7W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5wz-9f-ujb">
+                    <connections>
+                        <action selector="redColorWasTapped:" destination="BYZ-38-t0r" id="vtA-QC-rBs"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="shv-lX-XCW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>

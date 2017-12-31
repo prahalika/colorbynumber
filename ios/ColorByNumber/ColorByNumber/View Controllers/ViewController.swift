@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollviewContentView: UIView!
     @IBOutlet weak var imageContainer: PixelGridView!
+    @IBOutlet weak var redColorView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return self.scrollviewContentView
+    }
+
+    @IBAction func redColorWasTapped(_ tapGestureRecognizer: UITapGestureRecognizer!) {
+        selectedColor = UIColor.red;
     }
 
 }
