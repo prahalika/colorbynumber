@@ -16,11 +16,11 @@ class PixelGridView : UIView {
             let selectedPixel = self.uniquePixels[pixelSelected]
 
             // First clear all of them
-            for labels in self.pixelsToLabels.values {
+            /*for labels in self.pixelsToLabels.values {
                 for label in labels {
                     label.backgroundColor = UIColor.clear
                 }
-            }
+            }*/
 
             // Then highlight the selected ones
             for label in self.pixelsToLabels[selectedPixel]! {
