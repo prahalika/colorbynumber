@@ -24,7 +24,7 @@ class PixelGridView : UIView {
 
             // Then highlight the selected ones
             for label in self.pixelsToLabels[selectedPixel]! {
-                label.backgroundColor = UIColor.lightGray
+                label.backgroundColor = selectedColor;
             }
         }
     }

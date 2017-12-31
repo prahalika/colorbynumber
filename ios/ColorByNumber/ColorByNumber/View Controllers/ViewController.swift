@@ -8,6 +8,8 @@
 
 import UIKit
 
+var selectedColor = UIColor.lightGray;
+
 class ViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
